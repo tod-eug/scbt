@@ -1,5 +1,19 @@
+import bot.SprachCafeBot;
+import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
+import util.PropertiesProvider;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        PropertiesProvider.setup();
+
+        try {
+            TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
+            botsApi.registerBot(new SprachCafeBot());
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
     }
 }
