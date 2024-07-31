@@ -7,6 +7,7 @@ import java.sql.*;
 public class DatabaseHelper {
 
     public static final String createDateDefaultPattern = "yyyy-MM-dd HH:mm:ss";
+    public static final String timeIntervalPattern = "yyyy-MM-dd HH:mm:ss";
 
     private final String url;
     private final String user;
