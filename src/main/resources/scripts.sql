@@ -14,6 +14,7 @@ CREATE TABLE public.analytics (
 	id uuid NOT NULL,
 	user_id varchar(30) NOT NULL,
 	command varchar(30) NULL,
+	message_id varchar(30) NULL,
 	text varchar(3000) NULL,
 	callback varchar(100) NULL,
 	create_date timestamp NOT NULL,

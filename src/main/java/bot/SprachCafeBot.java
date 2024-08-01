@@ -4,6 +4,7 @@ import bot.commands.SprachCafeCommand;
 import bot.commands.StartCommand;
 import bot.commands.SysConstants;
 import bot.keyboards.Keyboards;
+import db.AnalyticsApi;
 import dto.RequestParameters;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
@@ -46,6 +47,7 @@ public class SprachCafeBot extends TelegramLongPollingCommandBot {
             processCallbackQuery(update);
         }
         if (update.hasMessage()) {
+            AnalyticsApi.createEvent(update.getMessage().getFrom().getId(), "", update.getMessage().getMessageId().toString(), update.getMessage().getText(), "");
             deleteMessage(update.getMessage().getChatId(), update.getMessage().getMessageId());
         }
     }
@@ -66,6 +68,7 @@ public class SprachCafeBot extends TelegramLongPollingCommandBot {
     }
 
     private void processCallbackQuery(Update update) {
+        AnalyticsApi.createEvent(update.getCallbackQuery().getFrom().getId(), "", update.getCallbackQuery().getMessage().getMessageId().toString(), "", update.getCallbackQuery().getData());
         Long userId = update.getCallbackQuery().getFrom().getId();
         Long chatId = update.getCallbackQuery().getMessage().getChatId();
         int messageId = update.getCallbackQuery().getMessage().getMessageId();
