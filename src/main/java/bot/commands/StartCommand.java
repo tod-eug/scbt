@@ -18,7 +18,7 @@ public class StartCommand implements IBotCommand {
     @Override
     public void processMessage(AbsSender absSender, Message message, String[] arguments) {
 
-        UsersApi.createUser(message.getFrom(), message.getChatId());
+        UsersApi.findUserByTgId(message.getFrom().getId().toString(), message.getFrom(), message.getChatId());
         String analyticsId = AnalyticsApi.createEvent(message.getFrom().getId(), "start", "","", "");
 
         SendMessage sm = new SendMessage();

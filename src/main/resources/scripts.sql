@@ -1,4 +1,5 @@
 CREATE TABLE public.users (
+    id uuid NOT NULL,
 	tg_id varchar(30) NOT NULL,
 	chat_id varchar(30) NOT NULL,
 	user_name varchar(100) NULL,
