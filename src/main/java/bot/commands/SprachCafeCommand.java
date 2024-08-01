@@ -22,12 +22,12 @@ public class SprachCafeCommand implements IBotCommand {
     @Override
     public void processMessage(AbsSender absSender, Message message, String[] arguments) {
 
-        String analyticsId = AnalyticsApi.createEvent(message.getFrom().getId(), "sprachcafe","",  "", "");
+        String analyticsId = AnalyticsApi.createEvent(message.getFrom().getId(), getCommandIdentifier(),"",  "", "");
 
         SendMessage sm = new SendMessage();
         sm.setChatId(message.getChatId());
         sm.setText(ReplyConstants.SPRACHCAFE_REPLY_WELCOME);
-        sm.setReplyMarkup(Keyboards.getKeyboard(SysConstants.WEEKDAYS, SysConstants.WEEKDAYS_ROOT_CALLBACK_TYPE));
+        sm.setReplyMarkup(Keyboards.getWeekdaysKeyboard(SysConstants.WEEKDAYS, SysConstants.WEEKDAYS_ROOT_CALLBACK_TYPE));
         Integer messageId = MessageProcessor.sendAndReturnMessageID(absSender, sm);
         AnalyticsApi.setMessageId(analyticsId, messageId.toString());
     }

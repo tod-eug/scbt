@@ -1,7 +1,9 @@
 package db;
 
 import db.mappers.SprachCafeMapper;
+import dto.Districts;
 import dto.SprachCafe;
+import dto.Weekdays;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,10 +12,10 @@ import java.util.List;
 
 public class CafesApi {
 
-    public static List<SprachCafe> getSprachCafes(String weekday, String district) {
+    public static List<SprachCafe> getSprachCafes(Weekdays weekday, Districts district) {
 
         String selectQuery = String.format("select name, address, district, contact, info, start_time, end_time from cafes join cafes_availability on cafes.id = cafes_availability.cafe_id where cafes_availability.day_of_week = '%s' and cafes.district = '%s' order by name;",
-                weekday, district);
+                weekday.getValue(), district.getValue());
 
         DatabaseHelper dbHelper = new DatabaseHelper();
         List<SprachCafe> result = new ArrayList<>();

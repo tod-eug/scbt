@@ -5,7 +5,10 @@ import bot.commands.StartCommand;
 import bot.commands.SysConstants;
 import bot.keyboards.Keyboards;
 import db.AnalyticsApi;
+import dto.DayTime;
+import dto.Districts;
 import dto.RequestParameters;
+import dto.Weekdays;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
@@ -82,27 +85,26 @@ public class SprachCafeBot extends TelegramLongPollingCommandBot {
             case SysConstants.DISTRICTS_ROOT_CALLBACK_TYPE:
                 processDistrictCallbackQuery(parsedCallback, userId, chatId, messageId, update.getCallbackQuery().getFrom());
                 break;
-            case SysConstants.DAYTIMES_ROOT_CALLBACK_TYPE:
+            case SysConstants.DAYTIME_ROOT_CALLBACK_TYPE:
                 processDayTimeCallbackQuery(parsedCallback, userId, chatId, messageId, update.getCallbackQuery().getFrom());
                 break;
         }
     }
 
     private void processWeekDayCallbackQuery(String[] parsedCallback, Long userId, Long chatId, int messageId, User user) {
-        String value = parsedCallback[1];
-        RequestParameters rp = new RequestParameters(value);
+        RequestParameters rp = new RequestParameters(Weekdays.valueOf(parsedCallback[1]));
         stateMap.put(userId, rp);
         editMessage(chatId, messageId, ReplyConstants.SPRACHCAFE_REPLY_DISTRICT, false,
-                Keyboards.getKeyboard(SysConstants.DISTRICTS, SysConstants.DISTRICTS_ROOT_CALLBACK_TYPE));
+                Keyboards.getDistrictsKeyboard(SysConstants.DISTRICTS, SysConstants.DISTRICTS_ROOT_CALLBACK_TYPE));
     }
 
     private void processDistrictCallbackQuery(String[] parsedCallback, Long userId, Long chatId, int messageId, User user) {
         RequestParameters rp = stateMap.get(userId);
         if (rp != null) {
-            rp.setDistrict(parsedCallback[1]);
+            rp.setDistrict(Districts.valueOf(parsedCallback[1]));
             stateMap.put(userId, rp);
             editMessage(chatId, messageId, ReplyConstants.SPRACHCAFE_REPLY_DAYTIME, false,
-                    Keyboards.getKeyboard(SysConstants.DAYTIMES, SysConstants.DAYTIMES_ROOT_CALLBACK_TYPE));
+                    Keyboards.getDayTimeKeyboard(SysConstants.DAYTIME, SysConstants.DAYTIME_ROOT_CALLBACK_TYPE));
         } else {
             deleteMessage(chatId, messageId);
         }
@@ -111,7 +113,7 @@ public class SprachCafeBot extends TelegramLongPollingCommandBot {
     private void processDayTimeCallbackQuery(String[] parsedCallback, Long userId, Long chatId, int messageId, User user) {
         RequestParameters rp = stateMap.get(userId);
         if (rp != null) {
-            rp.setDayTime(parsedCallback[1]);
+            rp.setDayTime(DayTime.valueOf(parsedCallback[1]));
             stateMap.put(userId, rp);
             editMessage(chatId, messageId, MessageProvider.getSprachCafeMessage(rp), false, null);
         } else {

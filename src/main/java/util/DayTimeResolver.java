@@ -1,6 +1,7 @@
 package util;
 
 import bot.commands.SysConstants;
+import dto.DayTime;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,24 +11,24 @@ import java.util.Map;
 
 public class DayTimeResolver {
 
-    public static Map<String, Date> getStartEndTimes(String daytime) {
+    public static Map<String, Date> getStartEndTimes(DayTime daytime) {
         Map<String, Date> result = new HashMap<>();
         String from;
         String to;
         switch (daytime) {
-            case "Morning":
+            case Morning:
                 from = SysConstants.MORNING_START_TIME;
                 to = SysConstants.MORNING_END_TIME;
                 result.put("from", getDateFromString(from));
                 result.put("to", getDateFromString(to));
                 break;
-            case "Day":
+            case Day:
                 from = SysConstants.DAY_START_TIME;
                 to = SysConstants.DAY_END_TIME;
                 result.put("from", getDateFromString(from));
                 result.put("to", getDateFromString(to));
                 break;
-            case "Evening":
+            case Evening:
                 from = SysConstants.EVENING_START_TIME;
                 to = SysConstants.EVENING_END_TIME;
                 result.put("from", getDateFromString(from));

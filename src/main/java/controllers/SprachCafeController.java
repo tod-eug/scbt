@@ -1,7 +1,10 @@
 package controllers;
 
 import db.CafesApi;
+import dto.DayTime;
+import dto.Districts;
 import dto.SprachCafe;
+import dto.Weekdays;
 import util.DayTimeResolver;
 
 import java.util.ArrayList;
@@ -11,7 +14,7 @@ import java.util.Map;
 
 public class SprachCafeController {
 
-    public static List<SprachCafe> getSprachcafes(String weekday, String district, String daytime) {
+    public static List<SprachCafe> getSprachcafes(Weekdays weekday, Districts district, DayTime daytime) {
 
         List<SprachCafe> result = new ArrayList<>();
         List<SprachCafe> rawList = CafesApi.getSprachCafes(weekday, district);

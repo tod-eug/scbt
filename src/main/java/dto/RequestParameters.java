@@ -2,35 +2,35 @@ package dto;
 
 public class RequestParameters {
 
-    private String weekDay;
-    private String district;
-    private String dayTime;
+    private Weekdays weekDay;
+    private Districts district;
+    private DayTime dayTime;
 
-    public RequestParameters(String weekDay) {
+    public RequestParameters(Weekdays weekDay) {
         this.weekDay = weekDay;
     }
 
-    public String getWeekDay() {
+    public Weekdays getWeekDay() {
         return weekDay;
     }
 
-    public String getDistrict() {
+    public Districts getDistrict() {
         return district;
     }
 
-    public String getDayTime() {
+    public DayTime getDayTime() {
         return dayTime;
     }
 
-    public void setWeekDay(String weekDay) {
+    public void setWeekDay(Weekdays weekDay) {
         this.weekDay = weekDay;
     }
 
-    public void setDistrict(String district) {
+    public void setDistrict(Districts district) {
         this.district = district;
     }
 
-    public void setDayTime(String dayTime) {
+    public void setDayTime(DayTime dayTime) {
         this.dayTime = dayTime;
     }
 }
