@@ -16,19 +16,19 @@ public class DayTimeResolver {
         String from;
         String to;
         switch (daytime) {
-            case Morning:
+            case Morgen:
                 from = SysConstants.MORNING_START_TIME;
                 to = SysConstants.MORNING_END_TIME;
                 result.put("from", getDateFromString(from));
                 result.put("to", getDateFromString(to));
                 break;
-            case Day:
+            case Nachmittag:
                 from = SysConstants.DAY_START_TIME;
                 to = SysConstants.DAY_END_TIME;
                 result.put("from", getDateFromString(from));
                 result.put("to", getDateFromString(to));
                 break;
-            case Evening:
+            case Abend:
                 from = SysConstants.EVENING_START_TIME;
                 to = SysConstants.EVENING_END_TIME;
                 result.put("from", getDateFromString(from));

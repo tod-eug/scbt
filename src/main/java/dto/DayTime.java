@@ -1,9 +1,9 @@
 package dto;
 
 public enum DayTime {
-    Morning("Morning"),
-    Day("Day"),
-    Evening("Evening");
+    Morgen("Morgen"),
+    Nachmittag("Nachmittag"),
+    Abend("Abend");
 
 
     private String value;

@@ -2,12 +2,12 @@ package dto;
 
 
 public enum Weekdays {
-    Monday("Monday"),
-    Tuesday("Tuesday"),
-    Wednesday("Wednesday"),
-    Thursday("Thursday"),
-    Friday("Friday"),
-    Saturday("Saturday");
+    Montag("Montag"),
+    Dienstag("Dienstag"),
+    Mittwoch("Mittwoch"),
+    Donnerstag("Donnerstag"),
+    Freitag("Freitag"),
+    Samstag("Samstag");
 
     private String value;
     public String getValue() {
