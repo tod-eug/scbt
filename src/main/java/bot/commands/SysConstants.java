@@ -15,9 +15,9 @@ public interface SysConstants {
 
     String DELIMITER = "-";
     List<Weekdays> WEEKDAYS = Arrays.asList(Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag);
-    List<Districts> DISTRICTS = Arrays.asList(Mitte, Friedrichshain, Pankow, Kreuzberg, Spandau, Steglitz,
-            Zehlendorf, Reinickendorf, Neukölln, Tempelhof, Schöneberg, Köpenick, Hellersdorf, Wilmersdorf,
-            Marzahn, Charlottenburg, Prenzlauer_Berg);
+    List<Districts> DISTRICTS = Arrays.asList(Mitte, Prenzlauer_Berg, Pankow, Kreuzberg, Spandau, Charlottenburg, Steglitz,
+            Zehlendorf, Reinickendorf, Neukölln, Tempelhof, Lichtenberg, Schöneberg, Köpenick, Hellersdorf, Wilmersdorf,
+            Marzahn, Friedrichshain);
     List<DayTime> DAYTIME = Arrays.asList(Morgen, Nachmittag, Abend);
     String WEEKDAYS_ROOT_CALLBACK_TYPE = "weekdays";
     String DISTRICTS_ROOT_CALLBACK_TYPE = "districts";

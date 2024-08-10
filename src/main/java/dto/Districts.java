@@ -2,22 +2,23 @@ package dto;
 
 public enum Districts {
     Mitte("Mitte"),
-    Friedrichshain("Friedrichshain"),
+    Prenzlauer_Berg("Prenzlauer Berg"),
     Pankow("Pankow"),
     Kreuzberg("Kreuzberg"),
     Spandau("Spandau"),
+    Charlottenburg("Charlottenburg"),
     Steglitz("Steglitz"),
     Zehlendorf("Zehlendorf"),
     Reinickendorf("Reinickendorf"),
     Neukölln("Neukölln"),
     Tempelhof("Tempelhof"),
+    Lichtenberg("Lichtenberg"),
     Schöneberg("Schöneberg"),
     Köpenick("Köpenick"),
     Hellersdorf("Hellersdorf"),
     Wilmersdorf("Wilmersdorf"),
     Marzahn("Marzahn"),
-    Charlottenburg("Charlottenburg"),
-    Prenzlauer_Berg("Prenzlauer Berg");
+    Friedrichshain("Friedrichshain");
 
     private String value;
     public String getValue() {
