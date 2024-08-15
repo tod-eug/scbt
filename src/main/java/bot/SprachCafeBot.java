@@ -115,7 +115,7 @@ public class SprachCafeBot extends TelegramLongPollingCommandBot {
         if (rp != null) {
             rp.setDayTime(DayTime.valueOf(parsedCallback[1]));
             stateMap.put(userId, rp);
-            editMessage(chatId, messageId, MessageProvider.getSprachCafeMessage(rp), false, null);
+            editMessage(chatId, messageId, MessageProvider.getSprachCafeMessage(rp), true, null);
         } else {
             deleteMessage(chatId, messageId);
         }
